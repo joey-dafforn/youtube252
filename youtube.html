@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+		<title>Sound Freak</title>
+
+		<style>
+			#video_id_label {
+				position: relative;
+				left: 50px;
+				top: 50px;
+			}
+
+			#video_id {
+				position: relative;
+				left: 50px;
+				top: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<label id="video_id_label">Video ID: </label>
+		<input type="text" id="video_id">
+
+		<script type="text/javascript">
+
+			function download() {
+				var string = "http://api.youtube6download.top/fetch/link.php?i="
+				var temp = document.getElementById("video_id").value
+				console.log()
+				string += temp;
+				console.log(string)
+
+				window.location = string;
+			
+			}
+
+			
+		</script>
+		<input type="button" value="Download Link" id="link" onclick="download()"/> 
+
+	</body>
+
+</html>
