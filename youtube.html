@@ -2,26 +2,54 @@
 
 	<head>
 		<title>Sound Freak</title>
-
 		<style>
+			body {
+				background-color: #CCFFFF
+			}
 			#video_id_label {
 				position: relative;
-				left: 50px;
-				top: 50px;
+				left: 250px;
+				top: 400px;
+				font-size: 40px;
 			}
-
+			#soundfreaklabel {
+				position: relative;
+				left: 710px;
+				top: 300px;
+				font-size: 40px;
+			}
 			#video_id {
 				position: relative;
-				left: 50px;
-				top: 50px;
+				left: 280px;
+				top: 395px;
+				height: 35px;
+				width: 300px;
+				font-size: 30px;
+			}
+			#link {
+				position: relative;
+				left: -110px;
+				top: 500px;
+				height: 70px;
+				width: 300px;
+    		background-color: #FE5B35;
+				border-radius: 100px;
+    		border: none;
+    		color: white;
+    		padding: 15px 32px;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-size: 25px;
+    		margin: 4px 2px;
+    		cursor: pointer;
 			}
 		</style>
 	</head>
-
 	<body>
+		<label id="soundfreaklabel">Welcome to Sound Freak!</label>
 		<label id="video_id_label">Video ID: </label>
 		<input type="text" id="video_id">
-
 		<script type="text/javascript">
 
 			function download() {
@@ -30,15 +58,10 @@
 				console.log()
 				string += temp;
 				console.log(string)
-
 				window.location = string;
-			
 			}
 
-			
 		</script>
-		<input type="button" value="Download Link" id="link" onclick="download()"/> 
-
+		<input type="button" value="Download" id="link" onclick="download()"/>
 	</body>
-
 </html>

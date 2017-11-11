@@ -14,14 +14,13 @@ app.get("/getvideo", function(req,res) {
 	}
 	//Need to check if video is valid, use Youtube API "Videos: List"
 	//https://developers.google.com/youtube/v3/docs/videos/list
+	//https://developers.google.com/youtube/iframe_api_reference
 	unirest.get("https://coolguruji-youtube-to-mp3-download-v1.p.mashape.com/?id=" + videoID)
 	.header("X-Mashape-Key", "gcb4IAjrU2mshi3V4tiBuVkrn1fnp1KnuZmjsnJ1xMryf1fAHV")
 	.header("Accept", "text/plain")
 	.end(function (result) {
   var html = JSON.stringify(result.body.data.html);
 	var link = JSON.stringify(result.body.data.link);
-	console.log("html: " + html);
-	console.log("link: " + link);
 	});
 })
 
