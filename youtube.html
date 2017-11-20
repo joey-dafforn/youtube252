@@ -32,26 +32,30 @@
 				top: 500px;
 				height: 70px;
 				width: 300px;
-    		background-color: #FE5B35;
+                background-color: #FE5B35;
 				border-radius: 100px;
-    		border: none;
-    		color: white;
-    		padding: 15px 32px;
-    		text-align: center;
-    		text-decoration: none;
-    		display: inline-block;
-    		font-size: 25px;
-    		margin: 4px 2px;
-    		cursor: pointer;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 25px;
+                margin: 4px 2px;
+                cursor: pointer;
 			}
 		</style>
 	</head>
+    
 	<body>
 		<label id="soundfreaklabel">Welcome to Sound Freak!</label>
 		<label id="video_id_label">Video ID: </label>
 		<input type="text" id="video_id">
+        
 		<script type="text/javascript">
-
+            
+            // API KEY -- AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4
+            
 			function download() {
 				var string = "http://api.youtube6download.top/fetch/link.php?i="
 				var temp = document.getElementById("video_id").value
@@ -62,6 +66,7 @@
 			}
 
 		</script>
+        
 		<input type="button" value="Download" id="link" onclick="download()"/>
 	</body>
 </html>
