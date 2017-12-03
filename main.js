@@ -9,6 +9,12 @@ app.use(bodyParser.json());
 
 var db = new sqlite3.Database('Jeopardy(4).db')
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
 app.post("/signin", function(request, response) {
 
 	var username = request.body.userID
