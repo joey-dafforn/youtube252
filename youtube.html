@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="bootstrap.js"></script>
 		<style>
-		
+
 			body {
 				font-family: Trebuchet MS !important;
 			}
@@ -22,8 +22,8 @@
 				border:2px solid #eee;
 				position: absolute;
 				z-index: 10000;
-				top: 400px;
-				left: 500px;
+				top: 250px;
+				left: 40%;
 				margin-left:10px;
 				transform-origin: 100% 0;
 				transition-property: min-height, width, top, right;
@@ -74,7 +74,7 @@
 
 			/* placeholder */
 			.morphsearch-input::-webkit-input-placeholder {
-				color: #111;
+				color: #fff;
 			}
 
 			.morphsearch-input:-moz-placeholder {
@@ -190,7 +190,7 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba(0,0,0,0.8);
+				background: #111;
 				opacity: 0;
 				pointer-events: none;
 				-webkit-transition: opacity 0.5s;
@@ -200,7 +200,7 @@
 			}
 
 			.morphsearch.open ~ .overlay {
-				opacity: 1;
+				opacity: 1
 			}
 
 			@media screen and (max-width: 53.125em) {
@@ -255,11 +255,11 @@
 			}*/
 			#link {
 				position: relative;
-				left: 570px;
-				top: 275px;
+				left: 33%;
+				top: 175px;
 				height: 70px;
 				width: 300px;
-                background-color: #FE5B35;
+                background-color: #111;
 				border-radius: 100px;
                 border: none;
                 color: white;
@@ -271,10 +271,34 @@
                 margin: 4px 2px;
                 cursor: pointer;
 			}
+			#watchButton {
+				position: relative;
+				left: 37%;
+				top: 175px;
+				height: 70px;
+				width: 300px;
+                background-color: #111;
+				border-radius: 100px;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 25px;
+                margin: 4px 2px;
+                cursor: pointer;
+			}
+			#player {
+				position: absolute;
+				left: 35%;
+				top: 550px;
+			}
 		</style>
 	</head>
 
 	<body>
+
 		<!-- <label id="video_id_label">Video ID: </label> -->
 		<!-- <input type="text" id="video_id"> -->
 		<div class="jumbotron text-center">
@@ -356,8 +380,63 @@
 				window.location = string;
 			}
 
+			function watch() {
+					onYouTubeIframeAPIReady()
+			}
+
 		</script>
+		<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+				if (document.getElementById("video_id").value == "") {
+					return;
+				}
+				else {
+	        player = new YT.Player('player', {
+	          height: '390',
+	          width: '640',
+	          videoId: document.getElementById("video_id").value,
+	          events: {
+	            'onReady': onPlayerReady,
+	            'onStateChange': onPlayerStateChange
+	          }
+	        });
+				}
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          //setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
 
 		<input type="button" value="Download" id="link" onclick="download()"/>
+		<input type="button" value="Watch" id="watchButton" onclick="watch()"/>
 	</body>
 </html>

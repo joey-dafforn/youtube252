@@ -9,10 +9,9 @@ function signin() {
 	var pass = document.getElementById("txtPassword").value;
 
 	var x = new XMLHttpRequest()
-	
+
 	x.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			alert("success")
 			window.location.href = "youtube.html"
 		}
 	}
