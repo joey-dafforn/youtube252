@@ -1,7 +1,7 @@
  function hello() {
 
  	var x = new XMLHttpRequest()
- 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=cat&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4"
+ 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById("query").value + "&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4"
 
 	x.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -30,7 +30,7 @@
 	x.open("GET", request, true)
 	x.setRequestHeader("Content-type", "application/json")
 	x.send()
-	
+
 }
 
 // function init() {
