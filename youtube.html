@@ -33,6 +33,12 @@
 				transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 			}
 
+			.divFriendsList {
+				position: absolute;
+				left: 10px;
+				top: 300px;
+			}
+
 			.morphsearch.open {
 				width: 98%;
 				padding:20px 0px;
@@ -320,8 +326,11 @@
 
 
 			<div id="buttons">
-			      <label> <input id="query" value='cats' type="text"/><button id="search-button" onclick="hello()">Search</button></label>
-			    </div>
+			      <label> <input id="query" value='cat' type="text"/><button id="search-button" onclick="hello()">Search</button></label>
+			</div>
+			<div class="divFriendsList" id="divFriendsList">
+				
+			</div>
 			    <div id="search-container">
 			    </div>
 			    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

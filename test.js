@@ -6,7 +6,21 @@
 	x.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var string = this.response
-			alert(string)
+			var obj = string.substring(string.indexOf("items") + 7, string.length - 2)
+			var results_array = JSON.parse(obj)
+			//alert(JSON.stringify(results_array[0]))
+			for (i = 0; i < results_array.length; i++) {
+				var row = document.createElement("div")
+				var title = document.createElement("div")
+
+				var result = JSON.stringify(results_array[i])
+
+				title.innerHTML = result.substring(result.indexOf("title"), result.indexOf("thumbnails") - 7)
+				row.appendChild(title)
+
+				divFriendsList.appendChild(row)
+			}
+
 		}
 		else {
 			console.log("didnt go through")
