@@ -12,10 +12,9 @@
 			for (i = 0; i < results_array.length; i++) {
 				var row = document.createElement("div")
 				var title = document.createElement("div")
-
 				var result = JSON.stringify(results_array[i])
-
-				title.innerHTML = result.substring(result.indexOf("title"), result.indexOf("thumbnails") - 7)
+        var asdf = result.substring(result.indexOf("videoId") + 10, result.indexOf("snippet") - 4)
+				title.innerHTML = "Title: " + result.substring(result.indexOf("title") + 8, result.indexOf("description") - 3) + " Video ID: " + asdf
 				row.appendChild(title)
 
 				divFriendsList.appendChild(row)
