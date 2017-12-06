@@ -1,7 +1,7 @@
  function hello() {
 
  	var x = new XMLHttpRequest()
- 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById("query").value + "&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4"
+ 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById("query").value + "&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4&maxResults=10"
 
 	x.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -14,7 +14,7 @@
 				var title = document.createElement("div")
 				var result = JSON.stringify(results_array[i])
         var asdf = result.substring(result.indexOf("videoId") + 10, result.indexOf("snippet") - 4)
-				title.innerHTML = "Title: " + result.substring(result.indexOf("title") + 8, result.indexOf("description") - 3) + " Video ID: " + asdf
+				title.innerHTML = "<button class=\"link\" onclick=\"clickedYoutubeLink(this.id)\" id=\"" + asdf + "\">Title: " + result.substring(result.indexOf("title") + 8, result.indexOf("description") - 3) + " Video ID: " + asdf + "</button>"
 				row.appendChild(title)
 
 				divFriendsList.appendChild(row)
@@ -30,6 +30,11 @@
 	x.setRequestHeader("Content-type", "application/json")
 	x.send()
 
+}
+
+function clickedYoutubeLink(id) {
+  document.getElementById("video_id").value = id
+  onYouTubeIframeAPIReady()
 }
 
 // function init() {
