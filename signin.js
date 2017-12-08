@@ -16,7 +16,7 @@ function signin() {
 		}
 	}
 
-	x.open("POST", "http://localhost:8000/signin", true)
+	x.open("POST", "/signin", true)
 	x.setRequestHeader("Content-type", "application/json")
 	x.send(JSON.stringify({userID: username, password: pass}))
 
