@@ -14,9 +14,9 @@
 				var title = document.createElement("div")
 				var result = JSON.stringify(results_array[i])
         var asdf = result.substring(result.indexOf("videoId") + 10, result.indexOf("snippet") - 4)
-				title.innerHTML = "<button class=\"link\" onclick=\"clickedYoutubeLink(this.id)\" id=\"" + asdf + "\">Title: " + result.substring(result.indexOf("title") + 8, result.indexOf("description") - 3) + " Video ID: " + asdf + "</button>"
+				title.innerHTML = "<button class=\"btn purple-gradient btn-lg\" onclick=\"clickedYoutubeLink(this.id)\" id=\"" + asdf + "\">Title: " + result.substring(result.indexOf("title") + 8, result.indexOf("description") - 3) + " Video ID: " + asdf + "</button>"
 				row.appendChild(title)
-
+        //button originally was class="link"
 				divFriendsList.appendChild(row)
 			}
 
