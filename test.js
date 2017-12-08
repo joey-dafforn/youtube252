@@ -1,7 +1,7 @@
  function hello() {
 
  	var x = new XMLHttpRequest()
- 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById("query").value + "&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4&maxResults=10"
+ 	var request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById("video_id").value + "&key=AIzaSyB6777g3SQvVsgbtOG6iHlL8R2NAl_i1B4&maxResults=10"
 
 	x.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

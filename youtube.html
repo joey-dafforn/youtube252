@@ -40,6 +40,7 @@
 			}
 
 			.morphsearch.open {
+				z-index: 10000;
 				width: 98%;
 				padding:20px 0px;
 				min-height: 100%;
@@ -48,6 +49,7 @@
 			}
 
 			.morphsearch-form {
+				z-index: 10000;
 				width: 100%;
 				height: 40px;
 				margin: 0 auto;
@@ -82,7 +84,7 @@
 
 			/* placeholder */
 			.morphsearch-input::-webkit-input-placeholder {
-				color: #fff;
+				color: #DE5260;
 			}
 
 			.morphsearch-input:-moz-placeholder {
@@ -263,7 +265,7 @@
 			}*/
 			#link {
 				position: relative;
-				left: 33%;
+				left: 25%;
 				top: 175px;
 				height: 70px;
 				width: 300px;
@@ -281,7 +283,7 @@
 			}
 			#watchButton {
 				position: relative;
-				left: 37%;
+				left: 25%;
 				top: 175px;
 				height: 70px;
 				width: 300px;
@@ -297,10 +299,32 @@
                 margin: 4px 2px;
                 cursor: pointer;
 			}
+			#search-button {
+				position: relative;
+				left: 57%;
+				top: 253px;
+				height: 70px;
+				width: 300px;
+                background-color: #111;
+				border-radius: 100px;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 25px;
+                margin: 4px 2px;
+                cursor: pointer;
+			}
+			#divFriendsList {
+				left: 0%;
+				top: 560px;
+			}
 			#player {
 				position: absolute;
-				left: 35%;
-				top: 550px;
+				left: 40%;
+				top: 575px;
 			}
 		</style>
 	</head>
@@ -312,10 +336,10 @@
 		<div class="jumbotron text-center">
 			<h1 class="head"> Welcome to SoundFreak</h1>
 		</div>
-			<div class="container">
+			<div class="container" style="z-index: 10000">
 				<div id="morphsearch" class="morphsearch">
 					<form class="morphsearch-form">
-						<input class="morphsearch-input" type="search" id="video_id" placeholder="Video ID"/>
+						<input class="morphsearch-input" type="search" id="video_id" placeholder="Video ID or Search Youtube"/>
 					</form>
 					<span class="morphsearch-close"></span>
 				</div><!-- /morphsearch -->
@@ -326,7 +350,7 @@
 
 
 			<div id="buttons">
-			      <label> <input id="query" value='cat' type="text"/><button id="search-button" onclick="hello()">Search</button></label>
+			      <button id="search-button" onclick="hello()">Search</button>
 			</div>
 			<div class="divFriendsList" id="divFriendsList">
 
@@ -460,7 +484,7 @@
       }
     </script>
 
-		<input type="button" value="Download" id="link" onclick="download()"/>
-		<input type="button" value="Watch" id="watchButton" onclick="watch()"/>
+		<input type="button" value="Download" id="link" onclick="download()" style="z-index: 9999"/>
+		<input type="button" value="Watch" id="watchButton" onclick="watch()" style="z-index: 9999"/>
 	</body>
 </html>
