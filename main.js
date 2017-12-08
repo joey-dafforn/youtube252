@@ -7,7 +7,7 @@ var unirest = require("unirest");
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use("/",express.static(__dirname));
 var db = new sqlite3.Database('Jeopardy(4).db')
 
 app.use(function(req, res, next) {
