@@ -3,6 +3,7 @@ var sqlite3 = require("sqlite3");
 var bodyParser = require("body-parser");
 var unirest = require("unirest");
 
+
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,7 +22,7 @@ app.post("/signin", function(request, response) {
 	var password = request.body.password
 
 	var query = "SELECT * FROM Users"
-	
+
 	db.all(query, [], function(err, rows) {
 		if (err) {
 			console.log("ERROR!\n" + err)
