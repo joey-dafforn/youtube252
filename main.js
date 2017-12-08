@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 	next();
 });
 app.get("/",function(req,res){
-	return res.sendFile(__dirname + "signin.html");
+	return res.sendFile(__dirname + "/signin.html");
 });
 app.post("/signin", function(request, response) {
 
